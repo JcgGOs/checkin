@@ -31,7 +31,6 @@ async function getPTSites() {
     let instance = await initInstance()
     if (instance) {
       let sites = await getEnv(instance, 'PT_SITE')
-      console.info(sites)
       return sites.map((env) => {
         let array = env.value.split('#')
         return {
