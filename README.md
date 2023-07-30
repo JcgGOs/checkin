@@ -6,3 +6,7 @@
 
 - [x] 青龙面板支持
 - [ ] 本地运行
+
+```shell
+ql repo https://ghproxy.com/https://github.com/JcgGOs/checkin.git "checkin" "" "ql"
+```

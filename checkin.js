@@ -3,7 +3,7 @@ cron "0 9 * * *" autoSignin.js, tag=阿里云盘签到
 */
 
 const axios = require('axios')
-const { initInstance, getEnv } = require('./qlApi.js')
+const { initInstance, getEnv } = require('./ql.js')
 
 // checkin
 function checkIn(host, cookie) {
@@ -21,7 +21,8 @@ function checkIn(host, cookie) {
       return Promise.resolve("[" + resp.status + "] checkin [" + host + "] successfully")
     })
     .catch(e => {
-      return Promise.resolve("[" + e.response.status + "] checkin [" + host + "] fail")
+      log.info(e)
+      return Promise.resolve("checkin [" + host + "] fail")
     })
 }
 
