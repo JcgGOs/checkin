@@ -48,9 +48,7 @@ async function getPTSites() {
 }
 
 !(async () => {
-  const HR='---------------'
   const messages = []
-  messages.push(HR)
   let sites = await getPTSites()
   for (let index = 0; index < sites.length; index++) {
     const e = sites[index];
@@ -58,7 +56,6 @@ async function getPTSites() {
     
     //log
     messages.push(result)
-    messages.push(HR)
     console.info("checkin:" + result)
   }
 
