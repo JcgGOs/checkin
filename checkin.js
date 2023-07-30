@@ -4,6 +4,7 @@ cron "0 9 * * *" autoSignin.js, tag=阿里云盘签到
 
 const axios = require('axios')
 const { initInstance, getEnv } = require('./ql.js')
+const notify = require('./sendNotify.js')
 
 // checkin
 function checkIn(host, cookie) {
