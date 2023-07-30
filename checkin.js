@@ -18,11 +18,11 @@ function checkIn(host, cookie) {
     },
   })
     .then(resp => {
-      return Promise.resolve("[" + resp.status + "] checkin [" + host + "] successfully")
+      return Promise.resolve("[" + host + "] "+resp.status+"")
     })
     .catch(e => {
       log.info(e)
-      return Promise.resolve("checkin [" + host + "] fail")
+      return Promise.resolve("[" + host + "] fail")
     })
 }
 
@@ -47,10 +47,19 @@ async function getPTSites() {
 }
 
 !(async () => {
+  const HR='---------------'
+  const messages = []
+  messages.push(HR)
   let sites = await getPTSites()
   for (let index = 0; index < sites.length; index++) {
     const e = sites[index];
     let result = await checkIn(e.host, e.cookie)
+    
+    //log
+    messages.push(result)
+    messages.push(HR)
     console.info("checkin:" + result)
   }
+
+  await notify.sendNotify(`PT签到`, messages.join('\n'))
 })()
