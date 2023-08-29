@@ -22,7 +22,7 @@ function checkIn(host, cookie) {
       return Promise.resolve("[" + host + "] "+resp.status+"")
     })
     .catch(e => {
-      log.info(e)
+      console.info(e)
       return Promise.resolve("[" + host + "] fail")
     })
 }
