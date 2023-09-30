@@ -19,11 +19,11 @@ function checkIn(host, cookie) {
     },
   })
     .then(resp => {
-      return Promise.resolve("[" + host + "] "+resp.status+"")
+      return Promise.resolve(resp.status + " [" + host + "]")
     })
     .catch(e => {
       console.info(e)
-      return Promise.resolve("[" + host + "] fail")
+      return Promise.resolve("500 [" + host + "]")
     })
 }
 
@@ -53,7 +53,7 @@ async function getPTSites() {
   for (let index = 0; index < sites.length; index++) {
     const e = sites[index];
     let result = await checkIn(e.host, e.cookie)
-    
+
     //log
     messages.push(result)
     console.info("checkin:" + result)
