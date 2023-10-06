@@ -19,11 +19,11 @@ function checkIn(host, cookie) {
     },
   })
     .then(resp => {
-      return Promise.resolve(resp.status + " [" + host + "]")
+      return Promise.resolve(" " + resp.status + "\t[" + host + "]")
     })
     .catch(e => {
       console.info(e)
-      return Promise.resolve("500 [" + host + "]")
+      return Promise.resolve("x 500\t[" + host + "]")
     })
 }
 
